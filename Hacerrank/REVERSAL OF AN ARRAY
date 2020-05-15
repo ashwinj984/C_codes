@@ -1,0 +1,31 @@
+//REVERSAL OF AN ARRAY
+#include<iostream>
+using namespace std;
+int main()
+{
+    int i, num;
+    int *arr;
+    cout<<"Enter size of element you want to reverse ";
+    cin>>num;
+    arr = new int[num];
+    cout<<"\n"<<"Enter the elements of the array you want to reverse "<<endl;
+    for(i = 0;i < num; i++)
+    {
+        cin>>*(arr + i);
+    }
+    /* LOGIC FOR REVERSAL*/
+    for(i = 0; i < num/2 ; i++)
+    {
+        int temp;
+        temp = *(arr + num - i - 1);
+        *(arr + num - i - 1) = *(arr + i);
+        *(arr + i) = temp;
+    }
+    /* End of the logic*/
+    cout<<endl<<"Reversed array is "<<endl;
+    for(i = 0; i < num ;i++)
+    {
+        cout<<*(arr + i)<<endl;
+    }
+    return 0;
+}
