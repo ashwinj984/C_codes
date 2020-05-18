@@ -1,0 +1,32 @@
+// USED C++ PROGARMMING
+//GEEKS FOR GEEKS 
+// MISSING NUMBER USING SUM OF N NUMBERS LOGIC
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t,n,i;
+    cout<<"Enter number of test cases"<<"\n";
+    cin>>t;
+    while(t>0){
+        cout<<"Enter the size of the array"<<"\n";
+        cin>>n;
+        int x = 0,ar[n-1],sum1 = 0;
+        cout<<"Enter array"<<"\n";
+        for(i=0;i<n-1;i++)
+        {
+            cin>>ar[i];
+            sum1 = sum1 + ar[i];
+        }
+         x = n*(n+1)/2;
+       
+        int r;
+        r = x - sum1;
+        cout<<r<<" ";
+        t--;
+    }
+    return 0;
+}
+// GEEKS FOR GEEKS 
+// C++ CODE
+//MISSING NUMBER USING XOR OPERATOR
