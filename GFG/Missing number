@@ -30,3 +30,30 @@ int main()
 // GEEKS FOR GEEKS 
 // C++ CODE
 //MISSING NUMBER USING XOR OPERATOR
+
+int main(){
+    int t,n;
+    cin>>t;
+    while(t>0){
+        cin>>n;
+        int a[n-1],val = 1;
+        for(int i = 0; i < n-1 ; i++)
+        {
+            cin>>a[i];
+        }
+        for(int i = 0; i < n-1 ; i++){
+            val = val ^ a[i];
+        }
+        int xorvalue = 1;
+        for(int i = 0; i < n; i++){
+            xorvalue = xorvalue ^ (i+1);
+        }
+        int c = xorvalue ^ val;
+        cout<<c<<" ";
+        t--;
+
+
+    }
+    return 0;
+}
+
