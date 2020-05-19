@@ -1,0 +1,32 @@
+// USED MATH.H HEADER FILE
+// USAGE OF LOG FUNCTION WHICH IS PRESENT IN MATH.H HEADER FILE
+// TO CHECK WHETHER TYPE OF RESULT IS INTERGER OR NOT USED 
+//IF(X == INT(X)
+// USAGE OF C++ CODES
+// I DON'T THINK THERE WOULD BE MORE EFFICIENT WAY THAN THIS 
+// EXECUTION TIME 0.01 SECONDS ONLY
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t){
+        int n;
+        double x;
+        cin>>n;
+        x = log2(n);
+        if(x == int(x))
+        cout<<"YES";
+        else
+        {
+            cout<<"NO";
+        }
+        t--;
+
+        }
+        return 0;
+    }
+    
