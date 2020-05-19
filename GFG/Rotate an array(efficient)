@@ -1,0 +1,55 @@
+#include<iostream>
+void rreversarray(int a[], int start, int end);
+void leftRotate(int a[],int d, int n);
+void printArray(int a[], int n);
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t>0)
+    {
+        int n,d;
+        cin>>n>>d;
+        if(d>n){
+            d = d % n;
+        }
+
+        int a[n];
+        for(int i = 0; i < n; i++){
+            cin>>a[i];
+        }
+        leftRotate(a,d,n);
+        printArray(a,n);
+        t--;
+    }
+    return 0;
+}
+void leftRotate(int a[], int d, int n)
+{
+    if (d == 0)
+    return;
+    rreversarray(a,0,d-1);
+    rreversarray(a,d,n-1);
+    rreversarray(a,0,n-1);
+
+}
+
+void rreversarray(int a[], int start, int end)
+{
+    while(start < end){
+        int temp = a[start];
+        a[start]=a[end];
+        a[end] = temp;
+        start++;
+        end--;
+    }
+}
+void printArray(int a[],int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+    cout<<a[i]<<" ";
+    }
+}
+
