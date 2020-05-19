@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cout<<"Enter number of test cases\n"
+    cin>>t;
+    while(t>0){
+
+        int n,d,i;
+        cout<<"\n Enter the size of array and value by which rotation has to be done\n"
+        cin>>n>>d;/* n--> number of element in array and d--> number by which to rotate*/
+        int a[n];
+        for(i = 0; i < n; i++){
+            cin>>a[i];
+        }
+        for(i = 0; i < d; i++){
+        int temp = a[0];
+        for(int j = 0; j < n; j++){
+            //int temp = a[0];
+            a[j] = a[j+1];
+        }
+        a[n-1] = temp;
+        }
+        for(i = 0; i < n; i++){
+            cout<<a[i]<<" ";
+        }
+        t--;
+        cout<<endl;
+    }
+    return 0;
+}
