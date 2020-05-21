@@ -43,3 +43,53 @@ int main(){
     }
     return 0;
 }
+
+//A second way to write same code
+#include<iostream>
+using namespace std;
+void majorityElement(int a[], int n)
+{
+    int maxcount = 0,index = -1;
+    for(int i = 0; i < n; i++)
+    {
+        int count = 0;
+        for(int j  = 0; j < n; j++)
+        {
+            if(a[i] == a[j])
+            {
+                count++;
+            }
+        }
+        if(count > maxcount)
+        {
+            maxcount = count;
+            index = i;
+        }
+    }
+    if(maxcount > n/2)
+    {
+        cout<<a[index]<<endl;
+    }
+    else
+    {
+        cout<<"-1"<<endl;
+    }
+    
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t)
+    {
+        int n;
+        cin>>n;
+        int a[n];
+        for(int i = 0; i < n; i++)
+        {
+            cin>>a[i];
+        }
+        majorityElement(a,n);
+        t--;
+    }
+}
