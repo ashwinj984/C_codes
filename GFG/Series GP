@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cmath>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        float a,b;
+        cin>>a>>b;
+        float r;
+        r = b/a;
+        float n;
+        float an;
+        cin>>n;
+        an = a * pow(r,n-1);
+        cout<<floor(an)<<endl;
+    }
+    return 0;
+}
+
+// For more details goto: https://practice.geeksforgeeks.org/problems/series-gp/0/ 
