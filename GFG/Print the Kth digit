@@ -1,0 +1,27 @@
+    #include<iostream>
+    #include<bits/stdc++.h>
+    #include<math.h>
+    using namespace std;
+    int main()
+    {
+        int t;
+        cin>>t;
+        while(t--)
+        {
+            int a,b,k;
+            cin>>a>>b>>k;
+            long long  e = pow(a,b);
+            vector<int> vr;
+            while(e != 0)
+            {
+            int k1;
+                k1 = e % 10;
+                e = e / 10;
+                vr.push_back(k1);
+            }
+            cout<<vr[k-1]<<endl;
+        }
+        return 0;
+    }
+
+// For more info goto:https://practice.geeksforgeeks.org/problems/print-the-kth-digit/0/
