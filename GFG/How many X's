@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	int t;
+	 cin>>t;
+	  while(t--)
+	  {
+	      int x,l,u;
+	       cin>>x>>l>>u;
+	       int i;
+	       int count=0;
+	        for(i=l+1;i<u;i++)
+	        { int  j=i;
+	            while(j>0)
+	            {
+	                int rem=j%10;
+	                if(rem==x)
+	                count++;
+	                j=j/10;
+	            }
+	        }
+	        cout<<count<<endl;
+	  }
+	return 0;
+}
+
+[GEEKS FOR GEEKS](https://practice.geeksforgeeks.org/problems/how-many-xs/0)
