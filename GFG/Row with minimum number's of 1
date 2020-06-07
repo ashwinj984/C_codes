@@ -1,0 +1,28 @@
+
+#include<iostream>
+using namespace std;
+int main()
+ {
+	int t;
+    cin>> t;
+    while(t--){
+        int n,m;
+        cin >> n >> m;
+        int a[n][m];
+        int max_1 = m+1,index=-1;
+        for(int i=0;i<n;i++){
+            int cnt = 0;
+            for(int j=0;j<m;j++){
+                cin >> a[i][j];
+                if(a[i][j] == 1)
+                    cnt++;
+            }
+            if(max_1 > cnt && cnt!=0){
+                max_1 = cnt;
+                index = i;
+            }
+        }
+        cout << index << endl;
+    }
+	return 0;
+}
