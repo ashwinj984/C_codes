@@ -1,0 +1,31 @@
+import java.util.*;
+public class stockmarket {
+	public static void main(String[] args) {
+		int[] arr = {9,7,11,8,5,15,12,11};
+		int sum = 0, k = 0, i = 0, j = 0;
+		for(i = 0; i < 8;)
+		{
+			k = arr[i];
+			int l = 0;
+			for(j = i+1; j < 7; j++)
+				{
+					if((arr[j-1] > arr[j]) && (arr[j]<arr[j+1]))
+					{
+						k = arr[j];
+					}
+					if((arr[j-1] < arr[j]) && (arr[j] > arr[j+1]))
+					{
+						l = arr[j];
+						sum = sum + (l - k);
+						//System.out.println("The max profit is "  + sum );
+						
+					}
+					i = j + 2;
+				
+				}
+			
+//			break;
+		}
+	System.out.println("The max profit is "  + sum );
+	}
+}
