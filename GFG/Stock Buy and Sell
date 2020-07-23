@@ -1,0 +1,64 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void solution(int [] , int );
+int main()
+{
+    int t;
+    cin>>t;
+    while(t-->0)
+    {
+        int n;
+        cin>>n;
+        int a[n];
+        for(int i = 0; i < n; i++)
+        cin>>a[i];
+        solution(a,n);
+        return 0;
+    }
+}
+void solution(int a[],int n)
+{
+    if( n == 1)
+    return;
+    
+    int i = 0;
+    int count = 0;
+    while(i < n-1)
+    {
+        
+        //finding minima
+        while(i < n-1 &&(a[i]>=a[i+1]))
+        i++;
+
+        if(i == n-1)
+          {
+               break;
+          }
+
+        int buy = i++;
+        //finding maxima
+        while(i < n && (a[i]>=a[i-1]))
+        i++;
+
+        if(i == n-1)
+        {
+            break;
+        }
+
+        int sell = i-1;
+        count = 1;
+        if(count == 1)
+        {
+            cout<<"("<<buy<<" "<<sell<<") ";
+
+        }
+        else
+        {
+            cout<<"No profit";
+        }
+        
+        
+    }
+    cout<<endl;
+}
