@@ -29,3 +29,5 @@ public class stockmarket {
 	System.out.println("The max profit is "  + sum );
 	}
 }
+// This does not work with other cases 
+// full time waste..
