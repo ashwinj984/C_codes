@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class kadanealgorithm1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.print("Enter the size of array you wish: ");
+		Scanner scn = new Scanner(System.in);
+		int n = scn.nextInt();
+		int[] a = new int[n];
+		for(int i = 0; i < n; i++)
+			a[i] = scn.nextInt();
+		int max_score = 0;
+		int min_score = 0;
+		for(int i = 0; i < n; i++)
+		{
+			min_score = min_score + a[i];
+			if(min_score > max_score)
+			{
+				max_score = min_score;
+			}
+			else if(min_score < 0)
+			{
+				min_score = 0;
+			}
+		}
+		System.out.println("The largest contiguos sum oof subarray is: "+ max_score);
+		
+
+	}
+
+}
