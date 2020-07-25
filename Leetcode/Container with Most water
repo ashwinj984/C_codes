@@ -1,0 +1,44 @@
+import java.util.*;
+public class containerleetcode {
+	public static int maxArea(int[] a) {
+		int l = 0, r = a.length-1;
+		int max = 0, ar = 0;
+		for(int i = 0; i < a.length;i++)
+		{
+			if(a[l] <= a[r])
+			{
+				ar = a[l] * (r-l);
+				if(max < ar)
+				{
+					max = ar;
+				}
+				l++;
+			}
+			else if(a[l]>a[r])
+			{
+				ar = a[r] * (r-l);
+				if(max < ar)
+				{
+					max = ar;
+				}
+				r--;
+			}
+		}
+		return max;
+	}
+
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();// number to be entered to determine how long the loop will be
+    int[] a = new int[n];
+    for(int i = 0; i < n; i++)
+    {
+      a[i] = scn.nextInt();
+     }
+		int e = maxArea(a);	
+		System.out.println(e);
+
+	}
+
+}
+# https://leetcode.com/problems/container-with-most-water/
