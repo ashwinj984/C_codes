@@ -1,0 +1,57 @@
+public class Solution{
+    public int romanToInt{
+            int num = 0;
+    int n = s.length();
+    
+    for(int i = n - 1; i >= 0; i--) {
+        
+        char c = s.charAt(i);
+        
+        if(c == 'I') {
+            if(i < n - 1) {
+                if(s.charAt(i + 1) == 'V' || s.charAt(i + 1) == 'X')
+                    num -= 1;
+                else
+                    num += 1;
+            } else
+                num += 1;
+        }
+        
+        if(c == 'X') {
+            if(i < n - 1) {
+                if(s.charAt(i + 1) == 'L' || s.charAt(i + 1) == 'C')
+                    num -= 10;
+                else
+                    num += 10;
+            } else
+                num += 10;
+        }
+        
+        if(c == 'C') {
+            if(i < n - 1) {
+                if(s.charAt(i + 1) == 'D' || s.charAt(i + 1) == 'M')
+                    num -= 100;
+                else
+                    num += 100;
+            } else
+                num += 100;
+        }
+        
+        if(c == 'V')
+            num += 5;
+        
+        if(c == 'L')
+            num += 50;
+        
+        if(c == 'D')
+            num += 500;
+        
+        if(c == 'M')
+            num += 1000;
+        
+    }
+    
+    return num;
+    }
+   }
+   //https://leetcode.com/problems/roman-to-integer/submissions/
