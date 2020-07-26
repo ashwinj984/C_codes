@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class zigzagversionleetcode {
+	public static String zigzag(String s, int n) {
+		if (n == 1)
+			return s;
+		int finalIndex = 0;
+		int slen = s.length();
+		char[] c = new char[slen];
+		for (int i = 0; i < n; i++) {
+			int present = i;
+			boolean b = true;
+			while (present < slen) {
+				c[finalIndex++] = s.charAt(present);
+
+				if (i == 0 || i == n - 1) {
+					present = present + (n - 1) * 2;
+				} else {
+					present = present + (b ? ((n - (i + 1)) * 2) : i * 2);// jump from one character to another
+																			// according to requirement
+					b = !b;
+				}
+			} // ending of while loop
+
+		} // ending of for loop
+		return new String(c);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scn = new Scanner(System.in);
+		String s = scn.next();
+		int n = scn.nextInt();
+		String c = zigzag(s, n);
+		System.out.println(c);
+
+	}
+
+}
+//https://leetcode.com/problems/zigzag-conversion/submissions/
