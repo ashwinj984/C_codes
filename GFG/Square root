@@ -1,0 +1,26 @@
+long long int floorSqrt(long long x){
+
+long long  l = 1, r = x;
+			
+			long ans = 1;
+			while(l<=r)
+			{
+				long m = ( l + r )/2;
+				if(m*m == x)
+				{
+					ans = m;
+					break;
+				}
+				else if(m*m < x)
+				{
+					l = m + 1;
+					ans = m; 
+				}
+				else
+				{
+					r = m - 1;
+				}
+			}
+      return ans;
+      }
+      //https://practice.geeksforgeeks.org/problems/square-root/1
