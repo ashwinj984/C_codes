@@ -1,0 +1,65 @@
+import java.util.*;
+
+public class trapping_rain_water {
+	public static int trap(int[] h) {
+
+		if (h.length == 0)
+			return 0;
+		int area = 0;
+		int l[] = new int[h.length];
+		int r[] = new int[h.length];
+		l[0] = h[0];
+		r[r.length - 1] = h[h.length - 1];
+
+		for (int i = 1; i < l.length; i++) {
+			l[i] = Math.max(h[i], l[i - 1]);
+		}
+		for (int j = r.length - 2; j >= 0; j--) {
+			r[j] = Math.max(h[j], r[j + 1]);
+		}
+
+		for (int i = 1; i < h.length - 1; i++) {
+			int minimum = Math.min(l[i], r[i]);
+
+			if (minimum == -1 || minimum < h[i])
+				continue;
+
+			area += minimum - h[i];
+
+		}
+		return area;
+	}
+
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		int n = scn.nextInt();
+		int[] h = new int[n];
+		for (int i = 0; i < n; i++) {
+			h[i] = scn.nextInt();
+		}
+		System.out.println("The total water collected is " + trap(h));
+	}
+
+}
+// BRUTE FORCE TECHNIQUE // Kisi tarah se kaam nikalne wala technique
+//int findMax(int ar[], int l, int r){
+//    int m = -1;
+//    for(int i = l; i <=r ; i++ )
+//        m  = Math.max(m, ar[i]);
+//    return m;
+//}
+
+//public int trap(int[] h ) {
+//    int area = 0;
+//    for(int i = 1; i< h.length-1; i++){
+//        int minimum = Math.min( findMax(h, i+1, h.length-1), findMax(h, 0, i-1) )    ;
+//        
+//        if( minimum == -1 || minimum < h[i])  continue;
+//        
+//        area += minimum - h[i];
+//    
+//    }
+//    return area;
+//}
+//}
+//https://leetcode.com/problems/trapping-rain-water/submissions/
