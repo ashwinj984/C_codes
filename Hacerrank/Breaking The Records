@@ -1,0 +1,117 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the breakingRecords function below.
+    static int[] breakingRecords(int[] scores) {
+        int[] min = new int[scores.length];
+            int[] max = new int[scores.length];
+            int[] sum = {0,0};
+            min[0] = scores[0];
+            max[0] = scores[0];
+            for(int i = 1; i < scores.length;i++)
+            {
+                if(scores[i]>scores[i-1])
+                {
+                    if(scores[i]>max[i-1])
+                    {
+                    max[i] = scores[i];
+                    }
+                    else
+                    {
+                        max[i] = max[i-1];
+                    }
+                }
+                else{
+                    max[i] = max[i-1];
+                }
+                
+            }
+            for(int i = 1; i < scores.length; i++)
+            {
+                if(scores[i]<scores[i-1])
+                {
+                    if(scores[i] < min[i-1])
+                    { 
+                        min[i] = scores[i];
+                    }
+                    else
+                    {
+                        min[i] = min[i-1];
+                    }
+                }
+                else
+                {
+                    min[i] = min[i-1];
+                }
+            }
+            for(int i = 0; i < scores.length; i++)
+            {
+                System.out.print(max[i]+" ");
+            }
+            System.out.println();
+            for(int i = 0; i < scores.length; i++)
+            {
+                System.out.print(min[i]+" ");
+            }
+           
+           
+            for(int i = 0; i < scores.length; i++)
+            {
+                if(max[i] == min[i])
+                    continue;
+                if(max[i]>max[i-1])
+                {
+                    sum[0]++;
+                }
+                if(min[i]<min[i-1])
+                {
+                    sum[1]++;
+                }
+            }
+            return sum;
+
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int[] scores = new int[n];
+
+        String[] scoresItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < n; i++) {
+            int scoresItem = Integer.parseInt(scoresItems[i]);
+            scores[i] = scoresItem;
+        }
+
+        int[] result = breakingRecords(scores);
+
+        for (int i = 0; i < result.length; i++) {
+            bufferedWriter.write(String.valueOf(result[i]));
+
+            if (i != result.length - 1) {
+                bufferedWriter.write(" ");
+            }
+        }
+
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
+}
+// JAVA IS USED
