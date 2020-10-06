@@ -2,7 +2,7 @@
 
 ## The month of Open-Source Celebration is finally here!!
 
-This repo will be a great platform for those who want to learn **Problem Solving **:
+This repo will be a great platform for those who want to learn **Problem Solving**:
 
 ### I will be adding a lot of problems which I solve in different Sites like :
 
