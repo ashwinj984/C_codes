@@ -16,3 +16,34 @@ class Solution {
         return ans;
     }
 }
+
+// bad version but easy approach
+
+class Solution {
+    public int rob(TreeNode root) {
+        if(root == null)
+            return 0;
+        int leftleftGrandChild = 0;
+        int leftrightGrandChild = 0;
+        
+        int rightleftGrandChild = 0;
+        int rightrightGrandChild = 0;
+        
+        if(root.left != null){
+         leftleftGrandChild = rob(root.left.left);
+         leftrightGrandChild = rob(root.left.right);
+        }
+        if(root.right != null){
+         rightleftGrandChild = rob(root.right.left);
+         rightrightGrandChild = rob(root.right.right);
+        }
+        int includingroot = root.val + leftleftGrandChild + leftrightGrandChild + rightleftGrandChild + rightrightGrandChild;
+        
+        int leftChild = rob(root.left);
+        int rightChild = rob(root.right);
+    
+        int excludingright = leftChild + rightChild;
+    
+        return Math.max(includingroot,excludingright);
+    }
+}
