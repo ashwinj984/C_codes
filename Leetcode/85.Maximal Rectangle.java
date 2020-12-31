@@ -19,7 +19,7 @@ class Solution {
         }
         return max;
     }
-    
+    //Largest Area in Histogram Logic
     public int findArea(int[] arr){
         if(arr.length == 0 || arr == null){
             return 0;
