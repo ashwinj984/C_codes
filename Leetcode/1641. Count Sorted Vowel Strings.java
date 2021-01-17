@@ -95,3 +95,19 @@ class Solution {
         }
     }
 }
+
+//Best Solution 
+//Dynamic Programming
+
+public int countVowelStrings(int n) {
+        int[] a = new int[5];
+        for(int i=0; i<5; i++)
+            a[i]=1;
+        
+        for(int k=1; k<=n; k++) {
+            for(int i=1; i<5;i++) 
+                a[i]= a[i]+a[i-1];
+        }   
+        return a[4];
+    }
+}
