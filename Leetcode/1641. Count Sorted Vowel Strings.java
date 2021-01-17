@@ -73,3 +73,25 @@ public class CountSortedVowelStrings {
 		
 	}
 }
+
+Another Approach -->
+	Precise Code
+	
+class Solution {
+    int ans = 0;
+    public int countVowelStrings(int n) {
+        count(0,n);
+        return ans;
+    }
+    
+    public void count(int src,int n){
+        if(n == 0){
+            ans++;
+            return;
+        }
+        
+        for(int i = src; i < 5; i++){
+            count(i,n-1);
+        }
+    }
+}
