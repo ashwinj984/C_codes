@@ -37,3 +37,30 @@ class Solution {
 }
     
 }
+// Bellman Ford
+class Solution {
+    
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+       int[][] distances = new int[2][n];
+        for (int[] distance: distances) {
+            Arrays.fill(distance, Integer.MAX_VALUE);
+        }
+        distances[0][src] = distances[1][src] = 0;
+        int i;
+        boolean hasChanged = false;
+        for (i = 0; i <= k; i++) {
+            hasChanged = false;
+            for (int[] flight: flights) {
+                int from = flight[0], to = flight[1], cost = flight[2];
+                if (distances[(i + 1) % 2][from] == Integer.MAX_VALUE) continue;
+                if (distances[(i + 1) % 2][from] + cost < distances[i % 2][to]) {
+                    distances[i % 2][to] = distances[(i + 1) % 2][from] + cost;
+                    hasChanged = true;
+                }
+            }
+            if (!hasChanged) break;
+        }
+        i = hasChanged ? i - 1 : i;
+        return distances[i % 2][dst] == Integer.MAX_VALUE ? -1 : distances[i % 2][dst];
+    }
+}
