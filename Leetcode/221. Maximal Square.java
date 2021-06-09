@@ -19,3 +19,25 @@ class Solution {
         return max * max;
     }
 }
+
+
+class Solution {
+    public int maximalSquare(char[][] matrix) {
+        int h = matrix.length;
+        int w  = matrix[0].length;
+        int max = 0;
+        int[][] t = new int[h][w];
+        for(int r = 0; r < h; r++){
+            for(int c = 0; c < w; c++){
+                if(matrix[r][c] == '1'){
+                    t[r][c] = 1;
+                    if(r > 0 && c > 0){
+                        t[r][c] += Math.min(Math.min(t[r - 1][c], t[r][c - 1]), t[r-1][c-1]);
+                    }
+                    max = Math.max(max, t[r][c]);
+                }
+            }
+        }
+        return max*max;
+    }
+}
