@@ -20,21 +20,26 @@ class Solution {
 // better appraoch
 // abhi soch raha hoon.............
 class Solution {
-    public int maxResult(int[] nums, int k) {
-        int n = nums.length;
-        Deque<Integer> dq = new ArrayDeque<>(); // store index of `nums` elements, elements is in decreasing order, the front is the maximum element.
-        dq.offer(0);
-        for (int i = 1; i < n; ++i) {
-            // nums[i] = max(nums[i-k], nums[i-k+1], .., nums[i-1]) + nums[i] = nums[dq.front()] + nums[i]
-            nums[i] = nums[dq.peekFirst()] + nums[i];
-
-            // Add nums[i] to our deque
-            while (!dq.isEmpty() && nums[dq.peekLast()] <= nums[i]) dq.pollLast(); // Eliminate elements less or equal to nums[i], which will never be chosen in the future
-            dq.offerLast(i);
-
-            // Remove if the last element is out of window size k
-            if (i - dq.peekFirst() >= k) dq.pollFirst();
+    public int maxResult(int[] A, int k) {
+        int n = A.length;
+        int[] dp = new int[n];
+        dp[n - 1] = A[n - 1];
+        
+        Deque<Integer> dq = new LinkedList<>();
+        dq.addLast(n - 1);
+        for(int i = n - 2; i >= 0; i--){
+            // remove index out of current window
+            while(dq.peekLast() > i + k){
+                dq.removeLast();
+            }
+            
+            dp[i] = A[i] + dp[dq.peekLast()];
+            
+            while(dq.isEmpty() == false && dp[i] > dp[dq.peekFirst()]){
+                dq.removeFirst();
+            }
+            dq.addFirst(i);
         }
-        return nums[n - 1];
+        return dp[0];
     }
 }
